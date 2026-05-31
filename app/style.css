@@ -175,6 +175,13 @@ body { display: flex; flex-direction: column; overflow: hidden; }
   box-shadow: var(--shadow); padding: 14px 16px;
 }
 .info-empty { font-size: 12.5px; color: var(--muted); }
+.info-close {
+  position: absolute; top: 8px; right: 8px; z-index: 2;
+  width: 28px; height: 28px; border: 1px solid var(--line); border-radius: 7px;
+  background: #fff; color: var(--muted); font-size: 18px; line-height: 1; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; pointer-events: auto;
+}
+.info-close:hover { background: var(--bg); color: var(--ink); }
 .info-name { font-size: 16px; font-weight: 680; letter-spacing: -.01em; }
 .info-bezirk { font-size: 11.5px; color: var(--muted); margin-bottom: 10px; }
 .info-result { display: flex; align-items: baseline; gap: 8px; margin-bottom: 10px; }

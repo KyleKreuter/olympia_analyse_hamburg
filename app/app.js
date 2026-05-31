@@ -36,8 +36,10 @@ const MINI_W = 216, MINI_H = 150, MINI_PAD = 6;
 const byName = {};
 const seqCache = {};
 let activeName = null;
+let infoDismissed = false, bwDismissed = false;
 
 const $ = (id) => document.getElementById(id);
+const INFO_EMPTY = '<span class="info-empty">Stadtteil anklicken oder über die Karte fahren</span>';
 
 // ---------- Laden ----------
 Promise.all([
@@ -151,9 +153,9 @@ function initMap(geo) {
     style: styleFor,
     onEachFeature: (feat, layer) => {
       layer.on({
-        mouseover: () => { layer.setStyle({ weight: 2.4, color: '#1b232c' }); showInfo(feat.properties); },
-        mouseout: () => { geoLayer.resetStyle(layer); if (activeName) showInfo(byName[activeName].properties); },
-        click: () => { activeName = feat.properties.name; showInfo(feat.properties); map.fitBounds(layer.getBounds(), { maxZoom: 13, padding: [40, 40] }); },
+        mouseover: () => { layer.setStyle({ weight: 2.4, color: '#1b232c' }); if (!infoDismissed) showInfo(feat.properties); },
+        mouseout: () => { geoLayer.resetStyle(layer); if (activeName && !infoDismissed) showInfo(byName[activeName].properties); },
+        click: () => { infoDismissed = false; activeName = feat.properties.name; showInfo(feat.properties); map.fitBounds(layer.getBounds(), { maxZoom: 13, padding: [40, 40] }); },
       });
     },
   }).addTo(map);
@@ -208,6 +210,7 @@ function showInfo(p) {
   const note = p.referendum_unit && p.referendum_unit !== p.name
     ? `<div class="info-bezirk">Wahlergebnis erfasst als: ${p.referendum_unit}</div>` : '';
   $('infoCard').innerHTML = `
+    <button class="info-close" type="button" aria-label="Schließen">&times;</button>
     <div class="info-name">${p.name}</div>
     <div class="info-bezirk">Bezirk ${p.bezirk || 'k. A.'}</div>
     ${note}
@@ -219,6 +222,7 @@ function showInfo(p) {
       ${bar('Ja', p.ja_pct, 'ja')}${bar('Nein', p.nein_pct, 'nein')}${bar('Beteiligung', p.beteiligung_pct, 'bet')}
     </div>
     <div class="info-grid">${curRow}${rows}</div>`;
+  $('infoCard').querySelector('.info-close').onclick = () => { infoDismissed = true; activeName = null; $('infoCard').innerHTML = INFO_EMPTY; };
 }
 function bar(label, val, cls) {
   return `<div class="bar-row"><span class="bar-key">${label}</span>
@@ -450,6 +454,7 @@ function showBwInfo(p) {
       <span class="bw-val">${nf(1)(pt.share)} %</span></div>`).join('');
   const note = p.bw_unit && p.bw_unit !== p.name ? `<div class="info-bezirk">Ergebnis erfasst als: ${p.bw_unit}</div>` : '';
   $('bwInfo').innerHTML = `
+    <button class="info-close" type="button" aria-label="Schließen">&times;</button>
     <div class="info-name">${p.name}</div>
     <div class="info-bezirk">Bezirk ${p.bezirk || 'k. A.'}</div>
     ${note}
@@ -457,6 +462,7 @@ function showBwInfo(p) {
       <span style="font-size:12px;color:var(--muted)">stärkste Kraft</span></div>
     <div class="bw-shares">${rows}</div>
     <div class="info-grid" style="margin-top:10px"><div class="k">Wahlbeteiligung</div><div class="v">${nf(1)(p.bw_beteiligung_pct)} %</div></div>`;
+  $('bwInfo').querySelector('.info-close').onclick = () => { bwDismissed = true; $('bwInfo').innerHTML = INFO_EMPTY; };
 }
 function renderBwLegend() {
   const el = $('bwLegend');
@@ -493,9 +499,9 @@ function initBw() {
   bwLayer = L.geoJSON(GEO, {
     style: bwStyle,
     onEachFeature: (feat, layer) => layer.on({
-      mouseover: () => { layer.setStyle({ weight: 2.4, color: '#1b232c' }); showBwInfo(feat.properties); },
+      mouseover: () => { layer.setStyle({ weight: 2.4, color: '#1b232c' }); if (!bwDismissed) showBwInfo(feat.properties); },
       mouseout: () => bwLayer.resetStyle(layer),
-      click: () => { showBwInfo(feat.properties); bwMap.fitBounds(layer.getBounds(), { maxZoom: 13, padding: [40, 40] }); },
+      click: () => { bwDismissed = false; showBwInfo(feat.properties); bwMap.fitBounds(layer.getBounds(), { maxZoom: 13, padding: [40, 40] }); },
     }),
   }).addTo(bwMap);
   renderBwLegend();
