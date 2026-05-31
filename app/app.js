@@ -390,6 +390,7 @@ function initDual() {
   const hover = (feat) => ({
     mouseover: (e) => { e.target.setStyle({ weight: 2.2, color: '#1b232c' }); dualHover(feat.properties); },
     mouseout: (e) => { e.target.setStyle({ weight: 1, color: '#fff' }); dualSummary(); },
+    click: (e) => { dualHover(feat.properties); },  // Touch: Tippen zeigt Werte
   });
   const tipOpts = { sticky: true, className: 'dual-tip', direction: 'top', opacity: 1 };
   dualLayers.left = L.geoJSON(GEO, {
