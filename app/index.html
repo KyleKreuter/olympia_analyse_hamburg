@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Olympia-Referendum 2026: Hamburg nach Stadtteilen</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-title">
+      <span class="kicker">Volksabstimmung Hamburg</span>
+      <h1>Olympia-Referendum 2026 nach Stadtteilen</h1>
+    </div>
+    <div class="mode-switch" id="modeSwitch">
+      <button data-mode="explorer" class="active" type="button">Karte erkunden</button>
+      <button data-mode="corr" type="button">Zusammenhänge</button>
+      <button data-mode="dual" type="button">Doppelkarte</button>
+      <button data-mode="bw" type="button">Bürgerschaft 2025</button>
+    </div>
+    <div class="topbar-summary" id="cityStats"></div>
+  </header>
+
+  <div class="layout" id="explorerView">
+    <aside class="panel" id="panel">
+      <section class="panel-block">
+        <label class="panel-label" for="metricSelect">Karte einfärben nach</label>
+        <select id="metricSelect" class="select"></select>
+        <div class="legend" id="legend"></div>
+      </section>
+
+      <section class="panel-block" id="corrBlock">
+        <h2 class="panel-h2">Zusammenhang finden</h2>
+        <p class="hint">Vergleicht den Ja-Anteil mit einem Stadtteil-Merkmal. Jeder Punkt ist ein Stadtteil.</p>
+        <label class="panel-label" for="scatterSelect">Merkmal (X-Achse)</label>
+        <select id="scatterSelect" class="select"></select>
+        <div class="scatter-wrap">
+          <svg id="scatter" viewBox="0 0 320 240" preserveAspectRatio="xMidYMid meet"></svg>
+        </div>
+        <div class="corr-readout" id="corrReadout"></div>
+      </section>
+
+      <section class="panel-block">
+        <div class="search-row">
+          <input id="search" class="select" type="text" placeholder="Stadtteil suchen" autocomplete="off" />
+        </div>
+        <div id="searchResults" class="search-results"></div>
+      </section>
+
+      <footer class="panel-foot" id="sources"></footer>
+    </aside>
+
+    <main class="map-wrap">
+      <div id="map"></div>
+      <div class="info-card" id="infoCard">
+        <span class="info-empty">Stadtteil anklicken oder über die Karte fahren</span>
+      </div>
+    </main>
+  </div>
+
+  <section class="gallery-view hidden" id="galleryView">
+    <div class="gallery-head">
+      <div class="gallery-intro">
+        <h2>Stärkste Zusammenhänge</h2>
+        <p class="hint">Jede Mini-Karte ist nach <strong>Ja-Richtung</strong> eingefärbt:
+          <span class="ink-ja">blau</span> steht für eine Ausprägung, die mit einem Ja-Votum einhergeht,
+          <span class="ink-nein">rot</span> für eine, die mit einem Nein einhergeht. Je ähnlicher eine Karte der
+          Referendums-Karte (links oben), desto stärker der statistische Zusammenhang. Ein Klick öffnet das Merkmal in der Doppelkarte.</p>
+      </div>
+      <label class="thresh"><input type="checkbox" id="strongOnly" checked /> nur starke ab Betrag 0,5</label>
+    </div>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </section>
+
+  <section class="dual-view hidden" id="dualView">
+    <div class="dual-panes">
+      <div class="dual-pane">
+        <div class="dual-head">
+          <div class="dual-title">Referendum, Ja-Anteil</div>
+          <div class="dual-legend" id="legendLeft"></div>
+        </div>
+        <div class="dual-map" id="mapLeft"></div>
+      </div>
+      <div class="dual-pane">
+        <div class="dual-head">
+          <select id="dualMetric" class="select select-inline"></select>
+          <div class="dual-legend" id="legendRight"></div>
+        </div>
+        <div class="dual-map" id="mapRight"></div>
+      </div>
+    </div>
+    <div class="dual-readout" id="dualReadout"></div>
+  </section>
+
+  <div class="layout hidden" id="bwView">
+    <aside class="panel">
+      <section class="panel-block">
+        <label class="panel-label" for="bwSelect">Karte einfärben nach</label>
+        <select id="bwSelect" class="select"></select>
+        <div class="legend" id="bwLegend"></div>
+      </section>
+      <section class="panel-block">
+        <h2 class="panel-h2">Ergebnis Hamburg gesamt</h2>
+        <div class="bw-citywide" id="bwCitywide"></div>
+      </section>
+      <footer class="panel-foot" id="bwSources"></footer>
+    </aside>
+    <main class="map-wrap">
+      <div id="bwMap"></div>
+      <div class="info-card" id="bwInfo"><span class="info-empty">Stadtteil anklicken oder über die Karte fahren</span></div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="app.js"></script>
+</body>
+</html>
