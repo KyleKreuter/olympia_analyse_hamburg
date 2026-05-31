@@ -9,6 +9,10 @@ Die zentrale Frage dahinter: **Welcher Faktor hat statistisch belegbar
 darüber entschieden, ob ein Stadtteil eher Ja oder Nein gestimmt hat?**
 Die Antwort steht weiter unten im Abschnitt [Kernbefunde](#kernbefunde).
 
+![Doppelkarte: links der Ja-Anteil beim Olympia-Referendum, rechts das Einkommen je Steuerpflichtigen. Die beiden Karten sind nahezu deckungsgleich (r = 0,77).](docs/doppelkarte.png)
+
+*Doppelkarte-Ansicht: links der Ja-Anteil beim Olympia-Referendum, rechts das Einkommen je Steuerpflichtigen. Beide Karten sind nahezu deckungsgleich, der Zusammenhang liegt bei r = 0,77.*
+
 ![Status](https://img.shields.io/badge/Stadtteile-99-blue) ![Status](https://img.shields.io/badge/Abstimmungs--Einheiten-90-blue) ![Status](https://img.shields.io/badge/Kennzahlen-68-blue)
 
 ## Schnellstart
