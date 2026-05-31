@@ -1,0 +1,341 @@
+{
+ "metrics": [
+  {
+   "key": "ja_pct",
+   "label": "Ja-Anteil (Olympia)",
+   "unit": "%",
+   "format": "pct",
+   "group": "Referendum"
+  },
+  {
+   "key": "nein_pct",
+   "label": "Nein-Anteil (Olympia)",
+   "unit": "%",
+   "format": "pct",
+   "group": "Referendum"
+  },
+  {
+   "key": "beteiligung_pct",
+   "label": "Wahlbeteiligung",
+   "unit": "%",
+   "format": "pct",
+   "group": "Referendum"
+  },
+  {
+   "key": "bevoelkerung",
+   "label": "Bevölkerung",
+   "unit": "Personen",
+   "format": "int",
+   "group": "Bevölkerung"
+  },
+  {
+   "key": "u18_pct",
+   "label": "Unter 18-Jährige",
+   "unit": "%",
+   "format": "pct",
+   "group": "Bevölkerung"
+  },
+  {
+   "key": "ue65_pct",
+   "label": "65-Jährige und Ältere",
+   "unit": "%",
+   "format": "pct",
+   "group": "Bevölkerung"
+  },
+  {
+   "key": "auslaender_pct",
+   "label": "Ausländer:innen",
+   "unit": "%",
+   "format": "pct",
+   "group": "Bevölkerung"
+  },
+  {
+   "key": "migra_pct",
+   "label": "Migrationshintergrund",
+   "unit": "%",
+   "format": "pct",
+   "group": "Bevölkerung"
+  },
+  {
+   "key": "u18_migra_pct",
+   "label": "Unter 18 mit Migrationshintergrund",
+   "unit": "%",
+   "format": "pct",
+   "group": "Bevölkerung"
+  },
+  {
+   "key": "pers_je_hh",
+   "label": "Personen je Haushalt",
+   "unit": "",
+   "format": "dec1",
+   "group": "Haushalte"
+  },
+  {
+   "key": "einpers_hh_pct",
+   "label": "Einpersonenhaushalte",
+   "unit": "%",
+   "format": "pct",
+   "group": "Haushalte"
+  },
+  {
+   "key": "hh_kinder_pct",
+   "label": "Haushalte mit Kindern",
+   "unit": "%",
+   "format": "pct",
+   "group": "Haushalte"
+  },
+  {
+   "key": "alleinerz_pct",
+   "label": "Alleinerziehende (Anteil HH mit Kindern)",
+   "unit": "%",
+   "format": "pct",
+   "group": "Haushalte"
+  },
+  {
+   "key": "ew_je_km2",
+   "label": "Bevölkerungsdichte",
+   "unit": "Einw./km²",
+   "format": "int",
+   "group": "Haushalte"
+  },
+  {
+   "key": "wanderungssaldo",
+   "label": "Wanderungssaldo",
+   "unit": "Personen",
+   "format": "int",
+   "group": "Bevölkerungsbewegung"
+  },
+  {
+   "key": "svb_pct",
+   "label": "Sozialversicherungspflichtig Beschäftigte",
+   "unit": "%",
+   "format": "pct",
+   "group": "Sozialstruktur"
+  },
+  {
+   "key": "arbeitslose_pct",
+   "label": "Arbeitslose",
+   "unit": "%",
+   "format": "pct",
+   "group": "Sozialstruktur"
+  },
+  {
+   "key": "jueng_arbeitslose_pct",
+   "label": "Jüngere Arbeitslose (15 bis 25 J.)",
+   "unit": "%",
+   "format": "pct",
+   "group": "Sozialstruktur"
+  },
+  {
+   "key": "aelt_arbeitslose_pct",
+   "label": "Ältere Arbeitslose (55 bis 65 J.)",
+   "unit": "%",
+   "format": "pct",
+   "group": "Sozialstruktur"
+  },
+  {
+   "key": "sgb2_pct",
+   "label": "SGB-II-Leistungsempfänger:innen",
+   "unit": "%",
+   "format": "pct",
+   "group": "Sozialstruktur"
+  },
+  {
+   "key": "u15_mindestsich_pct",
+   "label": "Unter 15 in Mindestsicherung",
+   "unit": "%",
+   "format": "pct",
+   "group": "Sozialstruktur"
+  },
+  {
+   "key": "grundsich_alter_pct",
+   "label": "Grundsicherung im Alter",
+   "unit": "%",
+   "format": "pct",
+   "group": "Sozialstruktur"
+  },
+  {
+   "key": "einkommen_je_stpfl",
+   "label": "Einkommen je Steuerpflichtigen (2021)",
+   "unit": "EUR",
+   "format": "eur",
+   "group": "Sozialstruktur"
+  },
+  {
+   "key": "whg_ein_zweifam_pct",
+   "label": "Wohnungen in Ein-/Zweifamilienhäusern",
+   "unit": "%",
+   "format": "pct",
+   "group": "Wohnen"
+  },
+  {
+   "key": "dschn_whg_groesse_m2",
+   "label": "Durchschnittliche Wohnungsgröße",
+   "unit": "m²",
+   "format": "dec1",
+   "group": "Wohnen"
+  },
+  {
+   "key": "wohnflaeche_je_ew_m2",
+   "label": "Wohnfläche je Einwohner:in",
+   "unit": "m²",
+   "format": "dec1",
+   "group": "Wohnen"
+  },
+  {
+   "key": "sozialwhg_pct",
+   "label": "Sozialwohnungen",
+   "unit": "%",
+   "format": "pct",
+   "group": "Wohnen"
+  },
+  {
+   "key": "immo_grundstueck_eur_m2",
+   "label": "Immobilienpreis Grundstücke",
+   "unit": "EUR/m²",
+   "format": "eurm2",
+   "group": "Wohnen"
+  },
+  {
+   "key": "immo_ein_zweifam_eur_m2",
+   "label": "Immobilienpreis Ein-/Zweifamilienhäuser",
+   "unit": "EUR/m²",
+   "format": "eurm2",
+   "group": "Wohnen"
+  },
+  {
+   "key": "immo_eigentumswhg_eur_m2",
+   "label": "Immobilienpreis Eigentumswohnungen",
+   "unit": "EUR/m²",
+   "format": "eurm2",
+   "group": "Wohnen"
+  },
+  {
+   "key": "schueler_stadtteilschule_pct",
+   "label": "Sek-I-Schüler:innen in Stadtteilschulen",
+   "unit": "%",
+   "format": "pct",
+   "group": "Infrastruktur"
+  },
+  {
+   "key": "schueler_gymnasium_pct",
+   "label": "Sek-I-Schüler:innen in Gymnasien",
+   "unit": "%",
+   "format": "pct",
+   "group": "Infrastruktur"
+  },
+  {
+   "key": "private_pkw_je_1000",
+   "label": "Private PKW je 1 000 Einw.",
+   "unit": "",
+   "format": "per1000",
+   "group": "Infrastruktur"
+  }
+ ],
+ "default_metric": "ergebnis",
+ "has_profile_data": true,
+ "has_buergerschaft": true,
+ "source_profile": "Statistikamt Nord, Hamburger Stadtteil-Profile, Berichtsjahr 2024",
+ "source_referendum": "Statistikamt Nord, Olympia-Referendum 2026",
+ "source_buergerschaft": "Statistikamt Nord, Bürgerschaftswahl 2025 (Landesstimmen)",
+ "buergerschaft": {
+  "parties": [
+   {
+    "key": "spd",
+    "label": "SPD",
+    "color": "#e3000f",
+    "citywide": 33.5
+   },
+   {
+    "key": "gruene",
+    "label": "GRÜNE",
+    "color": "#46962b",
+    "citywide": 18.5
+   },
+   {
+    "key": "cdu",
+    "label": "CDU",
+    "color": "#222222",
+    "citywide": 19.8
+   },
+   {
+    "key": "linke",
+    "label": "Die Linke",
+    "color": "#be3075",
+    "citywide": 11.2
+   },
+   {
+    "key": "afd",
+    "label": "AfD",
+    "color": "#009ee0",
+    "citywide": 7.5
+   },
+   {
+    "key": "fdp",
+    "label": "FDP",
+    "color": "#ffcc00",
+    "citywide": 2.3
+   },
+   {
+    "key": "volt",
+    "label": "Volt",
+    "color": "#502379",
+    "citywide": 3.2
+   },
+   {
+    "key": "bsw",
+    "label": "BSW",
+    "color": "#c0398f",
+    "citywide": 1.8
+   },
+   {
+    "key": "partei",
+    "label": "Die PARTEI",
+    "color": "#b5152b",
+    "citywide": 0.4
+   },
+   {
+    "key": "fw",
+    "label": "FREIE WÄHLER",
+    "color": "#fe7a00",
+    "citywide": 0.3
+   },
+   {
+    "key": "dava",
+    "label": "DAVA",
+    "color": "#5a8f3a",
+    "citywide": 0.6
+   },
+   {
+    "key": "tier",
+    "label": "Tierschutzpartei",
+    "color": "#00a76d",
+    "citywide": 0.6
+   },
+   {
+    "key": "oedp",
+    "label": "ÖDP",
+    "color": "#ff6400",
+    "citywide": 0.2
+   },
+   {
+    "key": "buendnis",
+    "label": "Bündnis Deutschland",
+    "color": "#f59a00",
+    "citywide": 0.1
+   },
+   {
+    "key": "diewahl",
+    "label": "DieWahl",
+    "color": "#7a7f87",
+    "citywide": 0.2
+   },
+   {
+    "key": "npd",
+    "label": "NPD",
+    "color": "#8b5a2b",
+    "citywide": 0.0
+   }
+  ]
+ }
+}
