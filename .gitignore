@@ -2,3 +2,6 @@
 __pycache__/
 *.pyc
 .playwright-mcp/
+
+# Test-Screenshots im Root
+/*.png
